@@ -85,18 +85,8 @@
         <div class="wn-hero-content">
             <div class="wn-container">
                 <div class="wn-hero-inner wn-animate">
-                    <h1 class="wn-hero-title">
-                        <?php 
-                        $hero_title = get_theme_mod('hero_title', __('Welcome to Wendy Nevins RVN', 'wendynevins'));
-                        echo esc_html($hero_title);
-                        ?>
-                    </h1>
-                    <p class="wn-hero-description">
-                        <?php 
-                        $hero_description = get_theme_mod('hero_description', __('Your trusted source for veterinary nursing CPD courses. Advance your career with expert-led training designed for RVNs.', 'wendynevins'));
-                        echo esc_html($hero_description);
-                        ?>
-                    </p>
+                    <h1 class="wn-hero-title"><?php _e('Wendy Nevins RVN', 'wendynevins'); ?></h1>
+                    <p class="wn-hero-description"><?php _e('Discover expertly curated courses, workshops and webinars tailored for Veterinary Nurses to elevate clinical knowledge and professional growth.', 'wendynevins'); ?></p>
                     <div class="wn-hero-actions">
                         <a href="<?php echo esc_url(home_url('/cpd-type/upcoming/')); ?>" class="wn-btn wn-btn-primary">
                             <?php _e('Upcoming CPD Courses', 'wendynevins'); ?>
