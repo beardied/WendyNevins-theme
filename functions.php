@@ -283,3 +283,51 @@ function wendynevins_editor_styles() {
     add_editor_style('assets/css/editor-style.css');
 }
 add_action('admin_init', 'wendynevins_editor_styles');
+
+/**
+ * Helper function to get upcoming CPD events
+ */
+if (!function_exists('wendynevins_get_upcoming_cpd')) {
+    function wendynevins_get_upcoming_cpd($count = 3) {
+        $args = array(
+            'post_type'      => 'cpd_event',
+            'posts_per_page' => $count,
+            'orderby'        => 'meta_value',
+            'meta_key'       => '_cpd_start_date',
+            'order'          => 'ASC',
+            'meta_query'     => array(
+                array(
+                    'key'     => '_cpd_start_date',
+                    'value'   => date('Y-m-d H:i:s'),
+                    'compare' => '>=',
+                    'type'    => 'DATETIME',
+                ),
+            ),
+        );
+        
+        return new WP_Query($args);
+    }
+}
+
+/**
+ * Helper function to get free CPD events
+ */
+if (!function_exists('wendynevins_get_free_cpd')) {
+    function wendynevins_get_free_cpd($count = 5) {
+        $args = array(
+            'post_type'      => 'cpd_event',
+            'posts_per_page' => $count,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'cpd_tag',
+                    'field'    => 'slug',
+                    'terms'    => 'free',
+                ),
+            ),
+        );
+        
+        return new WP_Query($args);
+    }
+}

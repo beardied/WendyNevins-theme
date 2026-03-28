@@ -4,7 +4,7 @@
  * Description: Modern, fresh WordPress theme for Wendy Nevins RVN - Registered Veterinary Nurse promoting CPD courses. Mobile-first design with smooth animations and clean aesthetics.
  * Author: OrangeWidow
  * Author URI: https://orangewidow.com
- * Version: 1.0.0
+ * Version: 1.1.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wendynevins
@@ -16,23 +16,30 @@
    CSS Custom Properties (Design Tokens)
    ========================================================================== */
 :root {
-    /* Primary Colors - Keeping the brand green */
+    /* Primary Colors - Modern darker green palette */
     --color-primary: #0d8f4f;
-    --color-primary-dark: #0a8043;
-    --color-primary-light: #66bb6a;
-    --color-primary-lighter: #e9ffe8;
+    --color-primary-dark: #0a7040;
+    --color-primary-darker: #064d2b;
+    --color-primary-light: #1db363;
+    --color-primary-lighter: #3ecf7e;
+    --color-primary-pale: #e8f5ee;
+    
+    /* Dark Navy-Green for hero/sections */
+    --color-navy: #0a3322;
+    --color-navy-light: #124d33;
     
     /* Neutral Colors */
-    --color-text: #2a2a2a;
-    --color-text-light: #5a5a5a;
-    --color-text-muted: #888888;
+    --color-text: #1a1a1a;
+    --color-text-light: #4a5568;
+    --color-text-muted: #718096;
     --color-background: #ffffff;
-    --color-background-alt: #f8faf8;
-    --color-border: #e0e8e0;
+    --color-background-alt: #f7fafc;
+    --color-background-dark: #edf2f7;
+    --color-border: #e2e8f0;
     
     /* Accent */
-    --color-accent: #0073aa;
-    --color-accent-hover: #005177;
+    --color-accent: #0d8f4f;
+    --color-accent-hover: #0a7040;
     
     /* Spacing Scale */
     --space-xs: 0.5rem;
@@ -41,6 +48,7 @@
     --space-lg: 2.5rem;
     --space-xl: 4rem;
     --space-2xl: 6rem;
+    --space-3xl: 8rem;
     
     /* Typography */
     --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -49,10 +57,12 @@
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
     --font-size-lg: 1.125rem;
-    --font-size-xl: 1.5rem;
-    --font-size-2xl: 2rem;
-    --font-size-3xl: 2.5rem;
-    --font-size-4xl: 3.5rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
     
     /* Line Heights */
     --leading-tight: 1.2;
@@ -70,6 +80,7 @@
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
     --radius-full: 9999px;
     
     /* Transitions */
@@ -81,8 +92,8 @@
     --container-sm: 640px;
     --container-md: 768px;
     --container-lg: 1024px;
-    --container-xl: 1280px;
-    --container-2xl: 1440px;
+    --container-xl: 1200px;
+    --container-2xl: 1400px;
 }
 
 /* ==========================================================================
@@ -136,10 +147,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--space-sm);
 }
 
-h1 { font-size: var(--font-size-3xl); }
-h2 { font-size: var(--font-size-2xl); }
-h3 { font-size: var(--font-size-xl); }
-h4 { font-size: var(--font-size-lg); }
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
 h5 { font-size: var(--font-size-base); }
 h6 { font-size: var(--font-size-sm); }
 
@@ -170,10 +181,10 @@ p {
 }
 
 /* ==========================================================================
-   Header
+   Header - Clean & Modern
    ========================================================================== */
 .wn-header {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--color-navy);
     color: white;
     position: sticky;
     top: 0;
@@ -186,7 +197,7 @@ p {
     align-items: center;
     justify-content: space-between;
     padding: var(--space-sm) 0;
-    min-height: 70px;
+    min-height: 80px;
 }
 
 .wn-logo {
@@ -201,7 +212,7 @@ p {
 }
 
 .wn-logo-title {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
@@ -212,7 +223,7 @@ p {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    opacity: 0.9;
+    opacity: 0.8;
     color: var(--color-primary-lighter);
 }
 
@@ -236,34 +247,17 @@ p {
     padding: 0.5rem 1rem;
     border-radius: var(--radius-full);
     transition: all var(--transition-fast);
-    position: relative;
+    white-space: nowrap;
 }
 
 .wn-nav-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
 }
 
-.wn-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: all var(--transition-base);
-    transform: translateX(-50%);
-}
-
-.wn-nav-link:hover::after {
-    width: 60%;
-}
-
-/* Current menu item */
 .wn-nav .current-menu-item .wn-nav-link,
 .wn-nav .current_page_item .wn-nav-link {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-primary);
 }
 
 /* Dropdown */
@@ -302,21 +296,21 @@ p {
 }
 
 .wn-nav .sub-menu a:hover {
-    background: var(--color-primary-lighter);
+    background: var(--color-primary-pale);
     color: var(--color-primary-dark);
 }
 
 /* ==========================================================================
-   Mobile Menu Toggle (Hamburger)
+   Mobile Menu Toggle
    ========================================================================== */
 .wn-menu-toggle {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.15);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;
@@ -325,7 +319,7 @@ p {
 }
 
 .wn-menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .wn-menu-toggle span {
@@ -354,11 +348,11 @@ p {
    ========================================================================== */
 .wn-mobile-nav {
     position: fixed;
-    top: 70px;
+    top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: white;
+    background: var(--color-navy);
     padding: var(--space-lg);
     transform: translateX(100%);
     transition: transform var(--transition-base);
@@ -375,19 +369,19 @@ p {
 }
 
 .wn-mobile-nav-list li {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .wn-mobile-nav-list a {
     display: block;
     padding: var(--space-sm) 0;
-    color: var(--color-text);
+    color: white;
     font-size: var(--font-size-lg);
     font-weight: 500;
 }
 
 .wn-mobile-nav-list a:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-lighter);
 }
 
 .wn-mobile-nav .sub-menu {
@@ -397,19 +391,163 @@ p {
 
 .wn-mobile-nav .sub-menu a {
     font-size: var(--font-size-base);
-    color: var(--color-text-light);
+    opacity: 0.8;
 }
 
 /* ==========================================================================
-   Main Content Area
+   Hero Section - Full Width
+   ========================================================================== */
+.wn-hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background: var(--color-navy);
+    overflow: hidden;
+}
+
+.wn-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.wn-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.wn-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10,51,34,0.95) 0%, rgba(10,112,64,0.85) 100%);
+    z-index: 1;
+}
+
+.wn-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: var(--space-2xl) 0;
+}
+
+.wn-hero-inner {
+    max-width: 700px;
+}
+
+.wn-hero-title {
+    font-size: var(--font-size-4xl);
+    color: white;
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .wn-hero-title {
+        font-size: var(--font-size-5xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .wn-hero-title {
+        font-size: var(--font-size-6xl);
+    }
+}
+
+.wn-hero-description {
+    font-size: var(--font-size-lg);
+    color: rgba(255,255,255,0.9);
+    margin-bottom: var(--space-lg);
+    line-height: var(--leading-relaxed);
+}
+
+.wn-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.wn-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.wn-btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.wn-btn-primary:hover {
+    background: var(--color-primary-light);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.wn-btn-outline {
+    background: transparent;
+    color: white;
+    border-color: rgba(255,255,255,0.5);
+}
+
+.wn-btn-outline:hover {
+    background: white;
+    color: var(--color-navy);
+    border-color: white;
+}
+
+/* ==========================================================================
+   Main Content & Layout
    ========================================================================== */
 .wn-main {
     min-height: 60vh;
+}
+
+/* Content Layout with Sidebar */
+.wn-content-layout {
+    display: grid;
+    gap: var(--space-xl);
     padding: var(--space-xl) 0;
 }
 
+.wn-primary {
+    min-width: 0;
+}
+
+.wn-sidebar {
+    order: -1;
+}
+
+@media (min-width: 1024px) {
+    .has-sidebar .wn-content-layout {
+        grid-template-columns: 1fr 340px;
+    }
+    
+    .has-sidebar .wn-sidebar {
+        order: 0;
+    }
+}
+
+/* ==========================================================================
+   Page Header
+   ========================================================================== */
 .wn-page-header {
-    background: var(--color-background-alt);
+    background: var(--color-primary-pale);
     padding: var(--space-xl) 0;
     margin-bottom: var(--space-xl);
     text-align: center;
@@ -428,18 +566,164 @@ p {
 }
 
 /* ==========================================================================
+   Section Styles
+   ========================================================================== */
+.wn-section {
+    padding: var(--space-2xl) 0;
+}
+
+.wn-section-alt {
+    background: var(--color-background-alt);
+}
+
+.wn-section-dark {
+    background: var(--color-navy);
+    color: white;
+}
+
+.wn-section-dark h2,
+.wn-section-dark h3 {
+    color: white;
+}
+
+.wn-section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.wn-section-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-sm);
+}
+
+.wn-section-description {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.wn-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wn-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
+}
+
+.wn-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.wn-card-content {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.wn-card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-xs);
+}
+
+.wn-card-title a {
+    color: var(--color-text);
+}
+
+.wn-card-title a:hover {
+    color: var(--color-primary);
+}
+
+.wn-card-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.wn-card-text {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    line-height: var(--leading-relaxed);
+    flex: 1;
+}
+
+.wn-card-footer {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   Grid Layouts
+   ========================================================================== */
+.wn-grid-2 {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.wn-grid-3 {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.wn-grid-4 {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+    .wn-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .wn-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wn-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .wn-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .wn-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .wn-footer {
-    background: var(--color-primary-dark);
+    background: var(--color-navy);
     color: white;
-    padding: var(--space-xl) 0 var(--space-lg);
+    padding: var(--space-2xl) 0 var(--space-lg);
 }
 
 .wn-footer-grid {
     display: grid;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
 }
 
 .wn-footer-widget-title {
@@ -447,7 +731,7 @@ p {
     color: white;
     margin-bottom: var(--space-sm);
     padding-bottom: var(--space-xs);
-    border-bottom: 2px solid var(--color-primary-light);
+    border-bottom: 2px solid var(--color-primary);
     display: inline-block;
 }
 
@@ -468,14 +752,32 @@ p {
 }
 
 .wn-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: var(--space-md);
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
     text-align: center;
     font-size: var(--font-size-sm);
-    color: var(--color-primary-lighter);
+    color: rgba(255,255,255,0.6);
+}
+
+@media (min-width: 768px) {
+    .wn-footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .wn-footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wn-footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 /* ==========================================================================
@@ -494,35 +796,9 @@ p {
         display: none;
     }
     
-    h1 { font-size: var(--font-size-4xl); }
-    h2 { font-size: var(--font-size-3xl); }
-    h3 { font-size: var(--font-size-2xl); }
-    
-    .wn-page-title {
-        font-size: var(--font-size-4xl);
-    }
-    
-    .wn-footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .wn-footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-    }
-}
-
-@media (min-width: 1024px) {
-    .wn-footer-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 1280px) {
-    .wn-footer-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    h1 { font-size: var(--font-size-5xl); }
+    h2 { font-size: var(--font-size-4xl); }
+    h3 { font-size: var(--font-size-3xl); }
 }
 
 /* ==========================================================================
@@ -544,28 +820,6 @@ p {
 .wn-animate-delay-3 { transition-delay: 0.3s; }
 .wn-animate-delay-4 { transition-delay: 0.4s; }
 
-/* Fade in from different directions */
-.wn-animate-left {
-    transform: translateX(-30px);
-}
-
-.wn-animate-right {
-    transform: translateX(30px);
-}
-
-.wn-animate-left.is-visible,
-.wn-animate-right.is-visible {
-    transform: translateX(0);
-}
-
-.wn-animate-scale {
-    transform: scale(0.95);
-}
-
-.wn-animate-scale.is-visible {
-    transform: scale(1);
-}
-
 /* ==========================================================================
    Accessibility
    ========================================================================== */
@@ -581,17 +835,6 @@ p {
     border: 0;
 }
 
-/* Focus styles */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-    outline: 3px solid var(--color-primary-light);
-    outline-offset: 2px;
-}
-
-/* Skip to content link */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -607,11 +850,22 @@ select:focus-visible {
     top: 0;
 }
 
+/* Focus styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
 /* ==========================================================================
    Print Styles
    ========================================================================== */
 @media print {
     .wn-header,
+    .wn-hero,
     .wn-nav,
     .wn-mobile-nav,
     .wn-menu-toggle,
@@ -622,14 +876,5 @@ select:focus-visible {
     body {
         font-size: 12pt;
         line-height: 1.5;
-    }
-    
-    a {
-        text-decoration: underline;
-    }
-    
-    a[href]::after {
-        content: " (" attr(href) ")";
-        font-size: 90%;
     }
 }
