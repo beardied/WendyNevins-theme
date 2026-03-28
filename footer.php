@@ -5,60 +5,52 @@
         
         <div class="wn-footer-grid">
             
-            <!-- Footer Widget Column 1 -->
-            <?php if (is_active_sidebar('footer-1')) : ?>
-                <div class="wn-footer-widget">
-                    <?php dynamic_sidebar('footer-1'); ?>
-                </div>
-            <?php endif; ?>
+            <!-- Quick Links -->
+            <div class="wn-footer-col">
+                <h4 class="wn-footer-title"><?php _e('Quick Links', 'wendynevins'); ?></h4>
+                <ul class="wn-footer-links">
+                    <li><a href="<?php echo esc_url(home_url('/cpd-type/upcoming/')); ?>"><?php _e('Upcoming CPD', 'wendynevins'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/cpd-type/on-demand/')); ?>"><?php _e('On Demand CPD', 'wendynevins'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/cpd-type/free/')); ?>"><?php _e('Free CPD', 'wendynevins'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/cpd-category/')); ?>"><?php _e('Categories', 'wendynevins'); ?></a></li>
+                </ul>
+            </div>
             
-            <!-- Footer Widget Column 2 -->
-            <?php if (is_active_sidebar('footer-2')) : ?>
-                <div class="wn-footer-widget">
-                    <?php dynamic_sidebar('footer-2'); ?>
+            <!-- Center Logo/Social -->
+            <div class="wn-footer-col wn-footer-center">
+                <div class="wn-footer-logo">
+                    <span class="wn-footer-logo-title">Wendy Nevins RVN</span>
+                    <span class="wn-footer-logo-tagline">REGISTERED VETERINARY NURSE</span>
                 </div>
-            <?php endif; ?>
+                
+                <div class="wn-footer-social">
+                    <a href="#" class="wn-social-link" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="wn-social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="wn-social-link" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="#" class="wn-social-link" aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                </div>
+            </div>
             
-            <!-- Footer Widget Column 3 -->
-            <?php if (is_active_sidebar('footer-3')) : ?>
-                <div class="wn-footer-widget">
-                    <?php dynamic_sidebar('footer-3'); ?>
-                </div>
-            <?php endif; ?>
-            
-            <!-- Footer Widget Column 4 -->
-            <?php if (is_active_sidebar('footer-4')) : ?>
-                <div class="wn-footer-widget">
-                    <?php dynamic_sidebar('footer-4'); ?>
-                </div>
-            <?php endif; ?>
+            <!-- Contact -->
+            <div class="wn-footer-col wn-footer-right">
+                <h4 class="wn-footer-title"><?php _e('Contact', 'wendynevins'); ?></h4>
+                <p class="wn-footer-contact">
+                    <a href="mailto:info@wendynevins.com">info@wendynevins.com</a>
+                </p>
+            </div>
             
         </div>
         
         <div class="wn-footer-bottom">
-            <div class="wn-footer-copyright">
-                <?php
-                printf(
-                    /* translators: %1$s: current year, %2$s: site name */
-                    esc_html__('© %1$s %2$s. All rights reserved.', 'wendynevins'),
-                    esc_html(date_i18n('Y')),
-                    esc_html(get_bloginfo('name'))
-                );
-                ?>
-            </div>
-            
-            <?php if (has_nav_menu('footer')) : ?>
-                <nav class="wn-footer-nav" aria-label="<?php _e('Footer Menu', 'wendynevins'); ?>">
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location'  => 'footer',
-                        'menu_class'      => 'wn-footer-menu',
-                        'container'       => false,
-                        'depth'           => 1,
-                    ));
-                    ?>
-                </nav>
-            <?php endif; ?>
+            <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. <?php _e('All rights reserved.', 'wendynevins'); ?></p>
         </div>
         
     </div>

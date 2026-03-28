@@ -533,23 +533,26 @@
 }
 
 /* ==========================================================================
-   Sidebar Widgets
+   Sidebar Widgets - Clean Modern Style
    ========================================================================== */
 .wn-sidebar .widget {
     background: white;
-    border-radius: var(--radius-xl);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #eaeaea;
 }
 
 .wn-sidebar .widget-title {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-    padding-bottom: var(--space-xs);
-    border-bottom: 3px solid var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
     color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .wn-sidebar ul {
@@ -559,29 +562,32 @@
 }
 
 .wn-sidebar li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--color-border);
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .wn-sidebar li:last-child {
     border-bottom: none;
 }
 
-.wn-sidebar a {
-    color: var(--color-text);
+.wn-sidebar li a {
+    color: #333;
     font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
     display: block;
-    margin-bottom: 0.25rem;
+    transition: color 0.2s;
 }
 
-.wn-sidebar a:hover {
+.wn-sidebar li a:hover {
     color: var(--color-primary);
 }
 
 .wn-sidebar .post-date {
     display: block;
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.3rem;
 }
 
 /* Search widget */
@@ -592,10 +598,10 @@
 
 .wn-sidebar .search-field {
     flex: 1;
-    padding: 0.75rem 1rem;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-base);
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
 }
 
 .wn-sidebar .search-field:focus {
@@ -604,18 +610,14 @@
 }
 
 .wn-sidebar .search-submit {
-    padding: 0.75rem 1.5rem;
+    padding: 0.625rem 1rem;
     background: var(--color-primary);
     color: white;
     border: none;
-    border-radius: var(--radius-full);
-    font-weight: 600;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.85rem;
     cursor: pointer;
-    transition: all var(--transition-fast);
-}
-
-.wn-sidebar .search-submit:hover {
-    background: var(--color-primary-dark);
 }
 
 /* Free CPD Widget */
