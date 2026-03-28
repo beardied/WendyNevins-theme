@@ -285,6 +285,11 @@ function wendynevins_editor_styles() {
 add_action('admin_init', 'wendynevins_editor_styles');
 
 /**
+ * Load custom widgets
+ */
+require_once get_template_directory() . '/inc/widgets.php';
+
+/**
  * Customizer settings
  */
 function wendynevins_customize_register($wp_customize) {

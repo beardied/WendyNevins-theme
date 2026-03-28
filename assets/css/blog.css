@@ -533,26 +533,36 @@
 }
 
 /* ==========================================================================
-   Sidebar Widgets - Clean Modern Style
+   Sidebar Widgets - Clean Modern Style with Green Top Bar
    ========================================================================== */
 .wn-sidebar .widget {
     background: white;
     border-radius: 12px;
-    padding: 1.5rem;
+    overflow: hidden;
     margin-bottom: 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     border: 1px solid #eaeaea;
 }
 
 .wn-sidebar .widget-title {
-    font-size: 0.85rem;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.8rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--color-primary);
-    color: var(--color-text);
+    margin: 0;
+    padding: 0.875rem 1.25rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+}
+
+.wn-sidebar .widget > ul,
+.wn-sidebar .widget > div:not(.widget-title),
+.wn-sidebar .widget > form {
+    padding: 1.25rem;
+}
+
+.wn-sidebar .widget_search .widget-title + form {
+    padding: 1.25rem;
 }
 
 .wn-sidebar ul {
