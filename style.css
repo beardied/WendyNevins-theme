@@ -258,9 +258,31 @@ p {
     color: white;
 }
 
-.wn-nav .current-menu-item .wn-nav-link,
-.wn-nav .current_page_item .wn-nav-link {
+.wn-nav > .menu > .current-menu-item > .wn-nav-link,
+.wn-nav > .menu > .current_page_item > .wn-nav-link {
     background: var(--color-primary);
+}
+
+/* Only highlight dropdown items when specifically on that page */
+.wn-nav .sub-menu .current-menu-item .wn-nav-link {
+    background: rgba(13, 143, 79, 0.15);
+    color: var(--color-primary-dark);
+}
+
+.wn-nav .sub-menu .current-menu-item .wn-nav-link:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Prevent current-menu-ancestor from highlighting all dropdown children */
+.wn-nav .current-menu-ancestor .sub-menu .wn-nav-link {
+    background: white;
+    color: var(--color-text);
+}
+
+.wn-nav .current-menu-ancestor .sub-menu .current-menu-item .wn-nav-link {
+    background: rgba(13, 143, 79, 0.15);
+    color: var(--color-primary-dark);
 }
 
 /* Dropdown */
