@@ -4,7 +4,7 @@
  * Description: Modern, fresh WordPress theme for Wendy Nevins RVN - Registered Veterinary Nurse promoting CPD courses. Mobile-first design with smooth animations and clean aesthetics.
  * Author: OrangeWidow
  * Author URI: https://orangewidow.com
- * Version: 1.1.0
+ * Version: 1.2.1
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wendynevins
@@ -203,12 +203,13 @@ p {
 .wn-logo {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
 }
 
 .wn-logo a {
     color: white;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .wn-logo-title {
@@ -216,6 +217,16 @@ p {
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.2;
+}
+
+.wn-logo-registered {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.9;
+    color: var(--color-primary-lighter);
+    margin-top: 0.25rem;
 }
 
 .wn-logo-tagline {
@@ -559,11 +570,13 @@ p {
 }
 
 @media (min-width: 1024px) {
-    .has-sidebar .wn-content-layout {
+    .has-sidebar .wn-content-layout,
+    .home .wn-content-layout {
         grid-template-columns: 1fr 340px;
     }
     
-    .has-sidebar .wn-sidebar {
+    .has-sidebar .wn-sidebar,
+    .home .wn-sidebar {
         order: 0;
     }
 }

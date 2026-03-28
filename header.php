@@ -20,10 +20,9 @@
             <!-- Logo -->
             <div class="wn-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                    <span class="wn-logo-title"><?php bloginfo('name'); ?></span>
-                    <?php if (get_bloginfo('description')) : ?>
-                        <span class="wn-logo-tagline"><?php bloginfo('description'); ?></span>
-                    <?php endif; ?>
+                    <span class="wn-logo-title">Wendy Nevins RVN</span>
+                    <span class="wn-logo-registered">REGISTERED</span>
+                    <span class="wn-logo-tagline">VETERINARY NURSE</span>
                 </a>
             </div>
             
