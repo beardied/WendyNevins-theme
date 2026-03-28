@@ -9,6 +9,51 @@ get_header();
 ?>
 
 <?php if (is_front_page() && !is_paged()) : ?>
+    
+    <!-- Why Choose Section -->
+    <section class="wn-section wn-section-alt">
+        <div class="wn-container">
+            <div class="wn-section-header wn-animate">
+                <h2 class="wn-section-title"><?php _e('Why Choose Wendy Nevins RVN?', 'wendynevins'); ?></h2>
+                <p class="wn-section-description"><?php _e('Your trusted partner in veterinary nursing professional development', 'wendynevins'); ?></p>
+            </div>
+            
+            <div class="wn-grid-4">
+                <div class="wn-feature wn-animate wn-animate-delay-1">
+                    <div class="wn-feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3 class="wn-feature-title"><?php _e('RCVS Accredited', 'wendynevins'); ?></h3>
+                    <p class="wn-feature-text"><?php _e('All our CPD courses meet RCVS standards for professional development.', 'wendynevins'); ?></p>
+                </div>
+                
+                <div class="wn-feature wn-animate wn-animate-delay-2">
+                    <div class="wn-feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="wn-feature-title"><?php _e('Expert Speakers', 'wendynevins'); ?></h3>
+                    <p class="wn-feature-text"><?php _e('Learn from industry-leading veterinary professionals and specialists.', 'wendynevins'); ?></p>
+                </div>
+                
+                <div class="wn-feature wn-animate wn-animate-delay-3">
+                    <div class="wn-feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h3 class="wn-feature-title"><?php _e('Flexible Learning', 'wendynevins'); ?></h3>
+                    <p class="wn-feature-text"><?php _e('Choose from live webinars, in-person events, or on-demand courses.', 'wendynevins'); ?></p>
+                </div>
+                
+                <div class="wn-feature wn-animate wn-animate-delay-4">
+                    <div class="wn-feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    </div>
+                    <h3 class="wn-feature-title"><?php _e('Practical Skills', 'wendynevins'); ?></h3>
+                    <p class="wn-feature-text"><?php _e('Gain hands-on skills you can apply immediately in your practice.', 'wendynevins'); ?></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Homepage Content -->
     <div class="wn-container">
         <div class="wn-content-layout">
