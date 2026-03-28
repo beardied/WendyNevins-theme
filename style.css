@@ -16,17 +16,17 @@
    CSS Custom Properties (Design Tokens)
    ========================================================================== */
 :root {
-    /* Primary Colors - Modern darker green palette */
+    /* Primary Colors - Lighter green palette (closer to original) */
     --color-primary: #0d8f4f;
-    --color-primary-dark: #0a7040;
-    --color-primary-darker: #064d2b;
-    --color-primary-light: #1db363;
-    --color-primary-lighter: #3ecf7e;
-    --color-primary-pale: #e8f5ee;
+    --color-primary-dark: #0a8043;
+    --color-primary-darker: #0a7040;
+    --color-primary-light: #66bb6a;
+    --color-primary-lighter: #81c784;
+    --color-primary-pale: #e8f5e9;
     
-    /* Dark Navy-Green for hero/sections */
-    --color-navy: #0a3322;
-    --color-navy-light: #124d33;
+    /* Dark Navy-Green for hero/sections - lighter */
+    --color-navy: #0d5c32;
+    --color-navy-light: #0d8f4f;
     
     /* Neutral Colors */
     --color-text: #1a1a1a;
@@ -437,6 +437,14 @@ p {
     max-width: 700px;
 }
 
+.wn-hero-small {
+    min-height: 300px;
+}
+
+.wn-hero-small .wn-hero-title {
+    font-size: var(--font-size-3xl);
+}
+
 .wn-hero-title {
     font-size: var(--font-size-4xl);
     color: white;
@@ -487,6 +495,11 @@ p {
     transition: all var(--transition-fast);
 }
 
+.wn-btn-small {
+    padding: 0.625rem 1.25rem;
+    font-size: var(--font-size-sm);
+}
+
 .wn-btn-primary {
     background: var(--color-primary);
     color: white;
@@ -499,10 +512,22 @@ p {
     box-shadow: var(--shadow-lg);
 }
 
+.wn-btn-secondary {
+    background: var(--color-primary-light);
+    color: white;
+}
+
+.wn-btn-secondary:hover {
+    background: var(--color-primary-lighter);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
 .wn-btn-outline {
     background: transparent;
     color: white;
-    border-color: rgba(255,255,255,0.5);
+    border-color: rgba(255,255,255,0.6);
 }
 
 .wn-btn-outline:hover {

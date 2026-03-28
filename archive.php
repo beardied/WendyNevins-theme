@@ -24,51 +24,35 @@ get_header();
             
             <?php if (have_posts()) : ?>
                 
-                <div class="wn-posts-grid">
-                    <?php
-                    $post_count = 0;
-                    while (have_posts()) :
-                        the_post();
-                        $post_count++;
-                        $animation_delay = ($post_count % 4) + 1;
-                        ?>
-                        
-                        <article id="post-<?php the_ID(); ?>" <?php post_class('wn-post-card wn-animate wn-animate-delay-' . $animation_delay); ?>>
-                            
+                <div class="wn-grid-2">
+                    <?php while (have_posts()) : the_post(); ?>
+                        <article id="post-<?php the_ID(); ?>" <?php post_class('wn-card wn-animate'); ?>>
                             <?php if (has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>" class="wn-post-thumbnail-link" aria-hidden="true" tabindex="-1">
-                                    <?php the_post_thumbnail('medium_large', array('class' => 'wn-post-thumbnail')); ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_post_thumbnail('medium_large', array('class' => 'wn-card-image')); ?>
                                 </a>
                             <?php endif; ?>
                             
-                            <div class="wn-post-content">
-                                <header class="wn-post-header">
-                                    <h2 class="wn-post-title">
-                                        <a href="<?php the_permalink(); ?>">
-                                            <?php the_title(); ?>
-                                        </a>
+                            <div class="wn-card-content">
+                                <header>
+                                    <h2 class="wn-card-title">
+                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                     </h2>
-                                    
-                                    <div class="wn-post-meta">
-                                        <time datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-                                            <?php echo esc_html(get_the_date()); ?>
-                                        </time>
+                                    <div class="wn-card-meta">
+                                        <?php echo esc_html(get_the_date()); ?>
                                     </div>
                                 </header>
-                                
-                                <div class="wn-post-excerpt">
+                                <div class="wn-card-text">
                                     <?php the_excerpt(); ?>
                                 </div>
-                                
-                                <footer class="wn-post-footer">
+                                <div class="wn-card-footer">
                                     <a href="<?php the_permalink(); ?>" class="wn-post-readmore">
                                         <?php _e('Read Article', 'wendynevins'); ?>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                     </a>
-                                </footer>
+                                </div>
                             </div>
                         </article>
-                        
                     <?php endwhile; ?>
                 </div>
                 
@@ -76,8 +60,8 @@ get_header();
                     <?php
                     the_posts_pagination(array(
                         'mid_size'  => 2,
-                        'prev_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> ' . __('Previous', 'wendynevins'),
-                        'next_text' => __('Next', 'wendynevins') . ' <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+                        'prev_text' => __('Previous', 'wendynevins'),
+                        'next_text' => __('Next', 'wendynevins'),
                     ));
                     ?>
                 </div>

@@ -100,11 +100,14 @@
                         ?>
                     </p>
                     <div class="wn-hero-actions">
-                        <a href="<?php echo esc_url(get_theme_mod('hero_button_url', '/cpd-type/upcoming/')); ?>" class="wn-btn wn-btn-primary">
-                            <?php echo esc_html(get_theme_mod('hero_button_text', __('Browse CPD Courses', 'wendynevins'))); ?>
+                        <a href="<?php echo esc_url(home_url('/cpd-type/upcoming/')); ?>" class="wn-btn wn-btn-primary">
+                            <?php _e('Upcoming CPD Courses', 'wendynevins'); ?>
                         </a>
-                        <a href="<?php echo esc_url(get_theme_mod('hero_button2_url', '/cpd-type/free/')); ?>" class="wn-btn wn-btn-outline">
-                            <?php echo esc_html(get_theme_mod('hero_button2_text', __('Free CPD', 'wendynevins'))); ?>
+                        <a href="<?php echo esc_url(home_url('/cpd-type/on-demand/')); ?>" class="wn-btn wn-btn-secondary">
+                            <?php _e('On Demand CPD', 'wendynevins'); ?>
+                        </a>
+                        <a href="<?php echo esc_url(home_url('/cpd-type/free/')); ?>" class="wn-btn wn-btn-outline">
+                            <?php _e('Free CPD', 'wendynevins'); ?>
                         </a>
                     </div>
                 </div>

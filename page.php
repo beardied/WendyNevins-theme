@@ -8,6 +8,26 @@
 get_header();
 ?>
 
+<?php if (!has_post_thumbnail()) : ?>
+    <div class="wn-page-header wn-animate">
+        <div class="wn-container">
+            <h1 class="wn-page-title"><?php the_title(); ?></h1>
+        </div>
+    </div>
+<?php else : ?>
+    <div class="wn-hero wn-hero-small">
+        <div class="wn-hero-bg">
+            <?php the_post_thumbnail('full', array('class' => 'wn-hero-image')); ?>
+        </div>
+        <div class="wn-hero-overlay"></div>
+        <div class="wn-hero-content">
+            <div class="wn-container">
+                <h1 class="wn-hero-title"><?php the_title(); ?></h1>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
 <div class="wn-container">
     <div class="wn-content-layout">
         
@@ -18,22 +38,8 @@ get_header();
                 the_post();
                 ?>
                 
-                <article id="post-<?php the_ID(); ?>" <?php post_class('wn-page-content'); ?>>
-                    
-                    <?php if (!has_post_thumbnail()) : ?>
-                        <header class="wn-page-header-simple wn-animate">
-                            <h1 class="wn-page-title"><?php the_title(); ?></h1>
-                        </header>
-                    <?php else : ?>
-                        <div class="wn-page-hero wn-animate">
-                            <?php the_post_thumbnail('full', array('class' => 'wn-page-hero-image')); ?>
-                            <div class="wn-page-hero-content">
-                                <h1 class="wn-page-title"><?php the_title(); ?></h1>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                    
-                    <div class="wn-page-body wn-animate">
+                <article id="post-<?php the_ID(); ?>" <?php post_class('wn-page-content wn-animate'); ?>>
+                    <div class="entry-content">
                         <?php
                         the_content();
                         
@@ -43,11 +49,9 @@ get_header();
                         ));
                         ?>
                     </div>
-                    
                 </article>
                 
                 <?php
-                // If comments are open or we have at least one comment, load up the comment template.
                 if (comments_open() || get_comments_number()) :
                     comments_template();
                 endif;

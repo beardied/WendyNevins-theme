@@ -285,6 +285,51 @@ function wendynevins_editor_styles() {
 add_action('admin_init', 'wendynevins_editor_styles');
 
 /**
+ * Customizer settings
+ */
+function wendynevins_customize_register($wp_customize) {
+    // Hero Section
+    $wp_customize->add_section('wn_hero_section', array(
+        'title'    => __('Hero Section', 'wendynevins'),
+        'priority' => 30,
+    ));
+    
+    // Hero Title
+    $wp_customize->add_setting('hero_title', array(
+        'default' => __('Welcome to Wendy Nevins RVN', 'wendynevins'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('hero_title', array(
+        'label'   => __('Hero Title', 'wendynevins'),
+        'section' => 'wn_hero_section',
+        'type'    => 'text',
+    ));
+    
+    // Hero Description
+    $wp_customize->add_setting('hero_description', array(
+        'default' => __('Your trusted source for veterinary nursing CPD courses.', 'wendynevins'),
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('hero_description', array(
+        'label'   => __('Hero Description', 'wendynevins'),
+        'section' => 'wn_hero_section',
+        'type'    => 'textarea',
+    ));
+    
+    // Hero Background Image
+    $wp_customize->add_setting('hero_background_image', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_background_image', array(
+        'label'    => __('Hero Background Image', 'wendynevins'),
+        'section'  => 'wn_hero_section',
+        'settings' => 'hero_background_image',
+    )));
+}
+add_action('customize_register', 'wendynevins_customize_register');
+
+/**
  * Helper function to get upcoming CPD events
  */
 if (!function_exists('wendynevins_get_upcoming_cpd')) {
