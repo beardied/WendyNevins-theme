@@ -4,7 +4,7 @@
  * Description: Modern, fresh WordPress theme for Wendy Nevins RVN - Registered Veterinary Nurse promoting CPD courses. Mobile-first design with smooth animations and clean aesthetics.
  * Author: OrangeWidow
  * Author URI: https://orangewidow.com
- * Version: 1.3.0
+ * Version: 1.3.1
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wendynevins
@@ -16,7 +16,7 @@
    CSS Custom Properties (Design Tokens)
    ========================================================================== */
 :root {
-    /* Primary Colors - Lighter green palette (closer to original) */
+    /* Primary Colors - Based on Gemini mockup dark navy-green */
     --color-primary: #0d8f4f;
     --color-primary-dark: #0a8043;
     --color-primary-darker: #0a7040;
@@ -24,9 +24,10 @@
     --color-primary-lighter: #81c784;
     --color-primary-pale: #e8f5e9;
     
-    /* Dark Navy-Green for hero/sections - lighter */
-    --color-navy: #0d5c32;
-    --color-navy-light: #0d8f4f;
+    /* Dark Navy-Green for hero/sections - matching Gemini */
+    --color-navy: #0a3d2a;
+    --color-navy-dark: #072a1d;
+    --color-navy-light: #0d5c3e;
     
     /* Neutral Colors */
     --color-text: #1a1a1a;
@@ -219,7 +220,7 @@ p {
     line-height: 1.2;
 }
 
-.wn-logo-registered {
+.wn-logo-tagline {
     font-size: var(--font-size-xs);
     font-weight: 600;
     text-transform: uppercase;
@@ -227,15 +228,6 @@ p {
     opacity: 0.9;
     color: var(--color-primary-lighter);
     margin-top: 0.25rem;
-}
-
-.wn-logo-tagline {
-    font-size: var(--font-size-xs);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.8;
-    color: var(--color-primary-lighter);
 }
 
 /* ==========================================================================
@@ -433,7 +425,7 @@ p {
 .wn-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(10,51,34,0.95) 0%, rgba(10,112,64,0.85) 100%);
+    background: linear-gradient(135deg, rgba(7,42,29,0.98) 0%, rgba(10,61,42,0.95) 50%, rgba(13,92,62,0.90) 100%);
     z-index: 1;
 }
 

@@ -21,8 +21,7 @@
             <div class="wn-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                     <span class="wn-logo-title">Wendy Nevins RVN</span>
-                    <span class="wn-logo-registered">REGISTERED</span>
-                    <span class="wn-logo-tagline">VETERINARY NURSE</span>
+                    <span class="wn-logo-tagline">REGISTERED VETERINARY NURSE</span>
                 </a>
             </div>
             

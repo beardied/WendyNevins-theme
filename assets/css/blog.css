@@ -554,6 +554,8 @@
 
 .wn-sidebar ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .wn-sidebar li {
@@ -567,10 +569,19 @@
 
 .wn-sidebar a {
     color: var(--color-text);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.25rem;
 }
 
 .wn-sidebar a:hover {
     color: var(--color-primary);
+}
+
+.wn-sidebar .post-date {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
 
 /* Search widget */

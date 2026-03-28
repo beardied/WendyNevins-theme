@@ -177,6 +177,42 @@ get_header();
             
             <!-- Sidebar -->
             <aside class="wn-sidebar">
+                <!-- Search Widget -->
+                <div class="widget widget_search">
+                    <h3 class="widget-title"><?php _e('Search', 'wendynevins'); ?></h3>
+                    <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+                        <label>
+                            <span class="screen-reader-text"><?php _e('Search for:', 'wendynevins'); ?></span>
+                            <input type="search" class="search-field" placeholder="<?php _e('Search...', 'wendynevins'); ?>" value="" name="s">
+                        </label>
+                        <input type="submit" class="search-submit" value="<?php _e('Search', 'wendynevins'); ?>">
+                    </form>
+                </div>
+                
+                <!-- Recent Posts Widget -->
+                <div class="widget widget_recent_entries">
+                    <h3 class="widget-title"><?php _e('Recent Posts', 'wendynevins'); ?></h3>
+                    <ul>
+                        <?php
+                        $recent_posts = new WP_Query(array(
+                            'posts_per_page' => 5,
+                            'post_status'    => 'publish',
+                        ));
+                        if ($recent_posts->have_posts()) :
+                            while ($recent_posts->have_posts()) : $recent_posts->the_post();
+                        ?>
+                            <li>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                <span class="post-date"><?php echo esc_html(get_the_date()); ?></span>
+                            </li>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        endif;
+                        ?>
+                    </ul>
+                </div>
+                
                 <?php dynamic_sidebar('sidebar-1'); ?>
                 
                 <!-- Free CPD Section in Sidebar -->
