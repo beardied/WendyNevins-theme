@@ -89,7 +89,7 @@
                     <p class="wn-hero-description"><?php _e('Discover expertly curated courses, workshops and webinars tailored for Veterinary Nurses to elevate clinical knowledge and professional growth.', 'wendynevins'); ?></p>
                     <div class="wn-hero-actions">
                         <a href="<?php echo esc_url(home_url('/cpd-type/upcoming/')); ?>" class="wn-btn wn-btn-primary">
-                            <?php _e('Upcoming CPD Courses', 'wendynevins'); ?>
+                            <?php _e('Upcoming CPD', 'wendynevins'); ?>
                         </a>
                         <a href="<?php echo esc_url(home_url('/cpd-type/on-demand/')); ?>" class="wn-btn wn-btn-secondary">
                             <?php _e('On Demand CPD', 'wendynevins'); ?>

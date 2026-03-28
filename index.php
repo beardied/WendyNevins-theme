@@ -118,7 +118,7 @@ get_header();
                 <?php if (function_exists('wendynevins_get_upcoming_cpd')) : ?>
                     <section class="wn-section wn-section-alt">
                         <div class="wn-section-header">
-                            <h2 class="wn-section-title"><?php _e('Upcoming CPD Courses', 'wendynevins'); ?></h2>
+                            <h2 class="wn-section-title"><?php _e('Upcoming CPD', 'wendynevins'); ?></h2>
                             <p class="wn-section-description"><?php _e('Don\'t miss these upcoming veterinary nursing courses', 'wendynevins'); ?></p>
                         </div>
                         
