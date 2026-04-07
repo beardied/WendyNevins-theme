@@ -1619,3 +1619,76 @@ tr:hover {
     font-size: 16px;
 }
 
+
+/* ==========================================================================
+   Mobile Overflow Fix
+   ========================================================================== */
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Ensure all images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix potential overflow from tables */
+table {
+    max-width: 100%;
+}
+
+/* Ensure all containers respect viewport */
+* {
+    box-sizing: border-box;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+    /* Prevent grids from causing overflow */
+    .wn-grid-2,
+    .wn-grid-3,
+    .wn-grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Ensure forms don't overflow */
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+    
+    /* Fix long URLs breaking layout */
+    a {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Ensure hero doesn't overflow */
+    .wn-hero {
+        max-width: 100vw;
+    }
+    
+    /* Fix potential overflow in reviews */
+    .wn-reviews-tiles {
+        grid-template-columns: 1fr;
+    }
+    
+    .wn-review-tile {
+        max-width: 100%;
+    }
+    
+    /* Fix stats grid on mobile */
+    .wn-reviews-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Ensure sidebar doesn't cause overflow */
+    .wn-sidebar {
+        max-width: 100%;
+    }
+}
