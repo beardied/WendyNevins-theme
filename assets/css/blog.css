@@ -730,7 +730,9 @@
 .widget_search .search-submit svg {
     width: 22px;
     height: 22px;
-    stroke: white;
+    stroke: white !important;
+    fill: none;
+    display: block;
 }
 
 .wn-sidebar .search-submit:hover,
