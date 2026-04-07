@@ -94,9 +94,12 @@
     $b = hexdec(substr($hex, 4, 2));
     
     // Calculate opacity values for gradient (start, middle, end)
-    $opacity_start = min(100, $hero_overlay_opacity + 7) / 100;
-    $opacity_mid = $hero_overlay_opacity / 100;
-    $opacity_end = max(0, $hero_overlay_opacity - 3) / 100;
+    // Ensure 0 = fully transparent, 100 = fully opaque
+    $base_opacity = max(0, min(100, intval($hero_overlay_opacity))) / 100;
+    // Create subtle gradient effect proportional to base opacity
+    $opacity_start = min(1, $base_opacity * 1.08);
+    $opacity_mid = $base_opacity;
+    $opacity_end = $base_opacity * 0.96;
     ?>
     <!-- Hero Section for Homepage -->
     <section class="wn-hero">
