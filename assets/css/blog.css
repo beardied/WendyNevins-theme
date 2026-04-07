@@ -1036,3 +1036,37 @@ input[type="submit"].search-submit::before {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
+
+/* ==========================================================================
+   Mobile Overflow Fix
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Ensure all blog content fits */
+    .wn-primary {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Fix post cards */
+    .wn-card {
+        max-width: 100%;
+    }
+    
+    /* Fix featured images */
+    .wn-post-featured-image,
+    .wn-post-hero {
+        max-width: 100%;
+    }
+    
+    /* Ensure author bio fits */
+    .wn-author-bio {
+        max-width: 100%;
+    }
+    
+    /* Fix pagination */
+    .wn-pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}

@@ -1648,6 +1648,11 @@ table {
 
 /* Mobile-specific fixes */
 @media (max-width: 768px) {
+    /* Reset container padding to prevent overflow */
+    .wn-container {
+        padding: 0 16px;
+    }
+    
     /* Prevent grids from causing overflow */
     .wn-grid-2,
     .wn-grid-3,
@@ -1670,7 +1675,7 @@ table {
     
     /* Ensure hero doesn't overflow */
     .wn-hero {
-        max-width: 100vw;
+        max-width: 100%;
     }
     
     /* Fix potential overflow in reviews */
@@ -1690,5 +1695,37 @@ table {
     /* Ensure sidebar doesn't cause overflow */
     .wn-sidebar {
         max-width: 100%;
+    }
+    
+    /* Fix footer overflow */
+    .wn-footer-grid {
+        padding: 0;
+    }
+    
+    .wn-footer-col {
+        padding: 0;
+    }
+    
+    /* Fix header logo overflow */
+    .wn-logo-title {
+        font-size: 1.5rem;
+    }
+    
+    .wn-logo-tagline {
+        font-size: 0.65rem;
+    }
+    
+    /* Ensure all sections don't overflow */
+    section {
+        max-width: 100%;
+    }
+    
+    /* Fix navigation overflow */
+    .wn-nav-list {
+        flex-wrap: wrap;
+    }
+    
+    .wn-nav-link {
+        white-space: normal;
     }
 }
