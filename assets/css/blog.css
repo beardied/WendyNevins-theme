@@ -332,6 +332,17 @@
     color: var(--color-primary) !important;
 }
 
+/* Footer headings should NOT be green */
+.wn-footer h1,
+.wn-footer h2,
+.wn-footer h3,
+.wn-footer h4,
+.wn-footer h5,
+.wn-footer h6,
+.wn-footer-title {
+    color: inherit !important;
+}
+
 .wn-post-body h2 {
     font-size: var(--font-size-xl);
     margin-top: var(--space-xl);
