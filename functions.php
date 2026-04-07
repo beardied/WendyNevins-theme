@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 
 // Theme version for cache busting
 if (!defined('WENDYNEVINS_VERSION')) {
-    define('WENDYNEVINS_VERSION', '1.4.5');
+    define('WENDYNEVINS_VERSION', '1.4.6');
 }
 
 /**
@@ -241,6 +241,20 @@ function wendynevins_head_cleanup() {
 add_action('init', 'wendynevins_head_cleanup');
 
 /**
+ * Disable WordPress emoji scripts
+ */
+function wendynevins_disable_emojis() {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    remove_filter('the_content_feed', 'wp_staticize_emoji');
+    remove_filter('comment_text_rss', 'wp_staticize_emoji');
+    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+}
+add_action('init', 'wendynevins_disable_emojis');
+
+/**
  * Disable comments completely
  */
 function wendynevins_disable_comments() {
@@ -307,20 +321,6 @@ add_filter('rewrite_rules_array', function($rules) {
     }
     return $rules;
 });
-
-/**
- * Disable WordPress emoji scripts
- */
-function wendynevins_disable_emojis() {
-    remove_action('wp_head', 'print_emoji_detection_script', 7);
-    remove_action('admin_print_scripts', 'print_emoji_detection_script');
-    remove_action('wp_print_styles', 'print_emoji_styles');
-    remove_action('admin_print_styles', 'print_emoji_styles');
-    remove_filter('the_content_feed', 'wp_staticize_emoji');
-    remove_filter('comment_text_rss', 'wp_staticize_emoji');
-    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
-}
-add_action('init', 'wendynevins_disable_emojis');
 
 /**
  * Custom login logo
@@ -456,3 +456,25 @@ if (!function_exists('wendynevins_get_free_cpd')) {
         return new WP_Query($args);
     }
 }
+
+/**
+ * Override WordPress search form to use SVG icon
+ * This affects the standard Search widget
+ */
+function wendynevins_custom_search_form($form) {
+    $form = '<form role="search" method="get" class="search-form" action="' . esc_url(home_url('/')) . '">
+        <label>
+            <span class="screen-reader-text">' . _x('Search for:', 'label', 'wendynevins') . '</span>
+            <input type="search" class="search-field" placeholder="' . esc_attr_x('Search...', 'placeholder', 'wendynevins') . '" value="' . get_search_query() . '" name="s" />
+        </label>
+        <button type="submit" class="search-submit" aria-label="' . esc_attr_x('Search', 'submit button', 'wendynevins') . '">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </button>
+    </form>';
+    
+    return $form;
+}
+add_filter('get_search_form', 'wendynevins_custom_search_form', 20);
