@@ -1324,24 +1324,23 @@ tr:hover {
    Reviews Page Styles
    ========================================================================== */
 
-/* Green Hero Section */
+/* Pale Green Hero Section */
 .wn-reviews-hero {
-    background: linear-gradient(135deg, #0d8f4f 0%, #0a7040 100%);
+    background: #e8f5e9;
     padding: 80px 20px 60px;
     text-align: center;
-    color: #ffffff;
 }
 
 .wn-reviews-hero-title {
     font-size: 48px;
     font-weight: 800;
     margin: 0 0 16px 0;
-    color: #ffffff;
+    color: #0d8f4f;
 }
 
 .wn-reviews-hero-desc {
     font-size: 20px;
-    opacity: 0.9;
+    color: #4a5568;
     margin: 0;
 }
 
