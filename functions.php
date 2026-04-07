@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 
 // Theme version for cache busting
 if (!defined('WENDYNEVINS_VERSION')) {
-    define('WENDYNEVINS_VERSION', '1.4.2');
+    define('WENDYNEVINS_VERSION', '1.4.3');
 }
 
 /**
