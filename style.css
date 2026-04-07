@@ -4,7 +4,7 @@
  * Description: Modern, fresh WordPress theme for Wendy Nevins RVN - Registered Veterinary Nurse promoting CPD courses. Mobile-first design with smooth animations and clean aesthetics.
  * Author: OrangeWidow
  * Author URI: https://orangewidow.com
- * Version: 1.5.2
+ * Version: 1.5.3
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wendynevins
@@ -1324,128 +1324,299 @@ tr:hover {
    Reviews Page Styles
    ========================================================================== */
 
+/* Green Hero Section */
 .wn-reviews-hero {
     background: linear-gradient(135deg, #0d8f4f 0%, #0a7040 100%);
-    padding: 60px 20px;
+    padding: 80px 20px 60px;
     text-align: center;
     color: #ffffff;
 }
 
 .wn-reviews-hero-title {
-    font-size: 42px;
+    font-size: 48px;
     font-weight: 800;
-    margin: 0 0 12px 0;
+    margin: 0 0 16px 0;
     color: #ffffff;
 }
 
 .wn-reviews-hero-desc {
-    font-size: 18px;
-    opacity: 0.95;
-    margin: 0 0 40px 0;
+    font-size: 20px;
+    opacity: 0.9;
+    margin: 0;
 }
 
-.wn-reviews-hero-stats {
-    margin-bottom: 40px;
+/* White Stats Section */
+.wn-reviews-stats {
+    background: #ffffff;
+    padding: 60px 20px;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.wn-reviews-big-rating {
-    margin-bottom: 8px;
+.wn-reviews-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.wn-reviews-number {
-    font-size: 96px;
+@media (max-width: 768px) {
+    .wn-reviews-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* Big Rating */
+.wn-reviews-stats-main {
+    text-align: center;
+}
+
+.wn-reviews-big-number {
+    font-size: 120px;
     font-weight: 800;
     line-height: 1;
-    letter-spacing: -2px;
+    color: #0d8f4f;
+    letter-spacing: -4px;
 }
 
-.wn-reviews-outof {
-    font-size: 36px;
-    font-weight: 400;
-    opacity: 0.8;
-}
-
-.wn-reviews-stars {
-    font-size: 36px;
+.wn-reviews-big-stars {
+    font-size: 32px;
     color: #ffc107;
-    margin-bottom: 12px;
+    margin: 16px 0;
     letter-spacing: 4px;
 }
 
-.wn-reviews-count {
+.wn-reviews-total {
     font-size: 18px;
-    opacity: 0.95;
+    color: #6b7280;
 }
 
-/* Rating Distribution Bars */
-.wn-reviews-distribution {
-    max-width: 400px;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 24px;
+/* Distribution Bars */
+.wn-reviews-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.wn-reviews-bar-row {
+.wn-reviews-bar {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
 }
 
-.wn-reviews-bar-row:last-child {
-    margin-bottom: 0;
-}
-
-.wn-reviews-bar-label {
+.wn-reviews-bar-star {
     font-size: 14px;
     font-weight: 600;
-    width: 40px;
-    text-align: left;
+    color: #374151;
+    width: 45px;
+    flex-shrink: 0;
 }
 
-.wn-reviews-bar-bg {
+.wn-reviews-bar-track {
     flex: 1;
-    height: 10px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 5px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .wn-reviews-bar-fill {
     height: 100%;
-    background: #ffc107;
-    border-radius: 5px;
+    background: #0d8f4f;
+    border-radius: 4px;
     transition: width 0.5s ease;
 }
 
-.wn-reviews-bar-count {
+.wn-reviews-bar-num {
     font-size: 14px;
     font-weight: 600;
+    color: #6b7280;
     width: 30px;
     text-align: right;
 }
 
-/* Main Reviews Section */
-.wn-reviews-main {
+/* Reviews Grid Section */
+.wn-reviews-grid-section {
+    background: #f9fafb;
     padding: 60px 20px;
 }
 
-@media (max-width: 768px) {
-    .wn-reviews-hero-title {
-        font-size: 32px;
+/* Review Tiles Grid */
+.wn-reviews-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .wn-reviews-tiles {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
-    .wn-reviews-number {
-        font-size: 64px;
+}
+
+@media (max-width: 640px) {
+    .wn-reviews-tiles {
+        grid-template-columns: 1fr;
     }
-    
-    .wn-reviews-stars {
-        font-size: 28px;
-    }
-    
-    .wn-reviews-distribution {
-        padding: 16px;
-    }
+}
+
+/* Individual Review Tile */
+.wn-review-tile {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+}
+
+.wn-review-tile:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.wn-review-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.wn-review-tile-stars {
+    color: #ffc107;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.wn-review-tile-date {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.wn-review-tile-body {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.wn-review-tile-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #374151;
+    margin: 0;
+}
+
+.wn-review-tile-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.wn-review-tile-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wn-review-tile-avatar {
+    width: 32px;
+    height: 32px;
+    background: #0d8f4f;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.wn-review-tile-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.wn-review-tile-cpd {
+    font-size: 13px;
+    color: #0d8f4f;
+    text-decoration: none;
+    font-weight: 500;
+    max-width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wn-review-tile-cpd:hover {
+    text-decoration: underline;
+}
+
+/* Pagination */
+.wn-reviews-pagination {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+}
+
+.wn-reviews-pagination .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 12px;
+    margin: 0 6px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.wn-reviews-pagination .page-numbers.current {
+    background: #0d8f4f;
+    border-color: #0d8f4f;
+    color: #ffffff;
+}
+
+.wn-reviews-pagination .page-numbers:hover:not(.current) {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+/* Empty State */
+.wn-reviews-empty {
+    text-align: center;
+    padding: 80px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+.wn-reviews-empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.wn-reviews-empty h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.wn-reviews-empty p {
+    color: #6b7280;
+    font-size: 16px;
 }
 
