@@ -998,6 +998,62 @@ p {
     top: 0;
 }
 
+/* ==========================================================================
+   Global Link & Button Color Enforcement (Green Theme)
+   ========================================================================== */
+
+/* All link states - force green */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    color: var(--color-accent);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-accent-hover);
+}
+
+/* WordPress default link overrides */
+.entry-content a,
+.post-content a,
+.page-content a,
+.comment-content a,
+.widget a,
+.sidebar a {
+    color: var(--color-accent);
+}
+
+.entry-content a:hover,
+.post-content a:hover,
+.page-content a:hover,
+.widget a:hover,
+.sidebar a:hover {
+    color: var(--color-accent-hover);
+}
+
+/* Button overrides - ensure green */
+button,
+input[type="button"],
+input[type="submit"],
+.wp-block-button__link,
+.wp-block-file__button {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.wp-block-button__link:hover,
+.wp-block-file__button:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
 /* Focus styles */
 a:focus-visible,
 button:focus-visible,
@@ -1006,6 +1062,223 @@ textarea:focus-visible,
 select:focus-visible {
     outline: 3px solid var(--color-primary-light);
     outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Modern Global Typography
+   ========================================================================== */
+
+/* Enhanced Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+h1 { 
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+h2 { 
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+}
+
+h3 { 
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+}
+
+h4 { 
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+h5 { 
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+h6 { 
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+}
+
+/* Enhanced Paragraphs */
+p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+}
+
+/* Enhanced Lists */
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+ul li, ol li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+    position: relative;
+}
+
+ul li::marker {
+    color: var(--color-primary);
+}
+
+ol li::marker {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Nested lists */
+ul ul, ol ol, ul ol, ol ul {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Definition lists */
+dl {
+    margin-bottom: 1.5rem;
+}
+
+dt {
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+dd {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Code */
+code {
+    background: var(--color-background-alt);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: var(--color-primary-dark);
+}
+
+pre {
+    background: var(--color-background-alt);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+th {
+    background: var(--color-primary-pale);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+tr:hover {
+    background: var(--color-background-alt);
+}
+
+/* Selection */
+::selection {
+    background: var(--color-primary-light);
+    color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-light);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* ==========================================================================
+   Instagram Widget - Green Button Override
+   ========================================================================== */
+.instagram-gallery__button,
+.instagram-gallery__button--follow {
+    background: var(--color-primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--radius-full) !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    transition: all var(--transition-fast) !important;
+}
+
+.instagram-gallery__button:hover,
+.instagram-gallery__button--follow:hover {
+    background: var(--color-primary-dark) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.instagram-gallery__button i,
+.instagram-gallery__button--follow i {
+    color: white !important;
 }
 
 /* ==========================================================================

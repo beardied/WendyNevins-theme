@@ -230,8 +230,83 @@ function wendynevins_head_cleanup() {
     
     // Remove shortlink
     remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+    
+    // Remove oEmbed links
+    remove_action('wp_head', 'wp_oembed_add_discovery_links');
+    remove_action('wp_head', 'wp_oembed_add_host_js');
+    
+    // Remove REST API link
+    remove_action('wp_head', 'rest_output_link_wp_head', 10);
 }
 add_action('init', 'wendynevins_head_cleanup');
+
+/**
+ * Disable comments completely
+ */
+function wendynevins_disable_comments() {
+    // Hide existing comments
+    add_filter('comments_array', '__return_empty_array', 10, 2);
+    
+    // Close comments on all post types
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+    
+    // Remove comments from admin menu
+    add_action('admin_menu', function() {
+        remove_menu_page('edit-comments.php');
+    });
+    
+    // Remove comments from admin bar
+    add_action('wp_before_admin_bar_render', function() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+    });
+    
+    // Disable comments on new posts
+    add_action('admin_init', function() {
+        $post_types = get_post_types();
+        foreach ($post_types as $post_type) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    });
+    
+    // Redirect any comment links to homepage
+    add_action('template_redirect', function() {
+        if (is_comment_feed() || is_comments_popup()) {
+            wp_redirect(home_url());
+            exit;
+        }
+    });
+    
+    // Remove comment styles
+    add_action('wp_enqueue_scripts', function() {
+        wp_deregister_style('wp-mediaelement');
+    });
+}
+add_action('init', 'wendynevins_disable_comments');
+
+/**
+ * Disable RSS feeds completely
+ */
+function wendynevins_disable_feeds() {
+    wp_die(__('No feeds available.', 'wendynevins'));
+}
+add_action('do_feed', 'wendynevins_disable_feeds', 1);
+add_action('do_feed_rdf', 'wendynevins_disable_feeds', 1);
+add_action('do_feed_rss', 'wendynevins_disable_feeds', 1);
+add_action('do_feed_rss2', 'wendynevins_disable_feeds', 1);
+add_action('do_feed_atom', 'wendynevins_disable_feeds', 1);
+
+// Remove feed rewrite rules
+add_filter('rewrite_rules_array', function($rules) {
+    foreach ($rules as $rule => $rewrite) {
+        if (strpos($rewrite, 'feed') !== false || strpos($rule, 'feed') !== false) {
+            unset($rules[$rule]);
+        }
+    }
+    return $rules;
+});
 
 /**
  * Disable WordPress emoji scripts

@@ -72,16 +72,38 @@
 </header>
 
 <?php if (is_front_page() && !is_paged()) : ?>
+    <?php
+    // Get hero settings
+    $hero_image_id = get_option('cpd_hero_image', 0);
+    $hero_overlay_opacity = get_option('cpd_hero_overlay_opacity', '85');
+    $hero_overlay_color = get_option('cpd_hero_overlay_color', '#0d8f4f');
+    
+    // Get hero image URL
+    if ($hero_image_id) {
+        $hero_image_url = wp_get_attachment_url($hero_image_id);
+    } elseif (get_header_image()) {
+        $hero_image_url = get_header_image();
+    } else {
+        $hero_image_url = get_template_directory_uri() . '/assets/images/hero-default.jpg';
+    }
+    
+    // Convert hex color to RGB for gradient
+    $hex = ltrim($hero_overlay_color, '#');
+    $r = hexdec(substr($hex, 0, 2));
+    $g = hexdec(substr($hex, 2, 2));
+    $b = hexdec(substr($hex, 4, 2));
+    
+    // Calculate opacity values for gradient (start, middle, end)
+    $opacity_start = min(100, $hero_overlay_opacity + 7) / 100;
+    $opacity_mid = $hero_overlay_opacity / 100;
+    $opacity_end = max(0, $hero_overlay_opacity - 3) / 100;
+    ?>
     <!-- Hero Section for Homepage -->
     <section class="wn-hero">
         <div class="wn-hero-bg">
-            <?php if (get_header_image()) : ?>
-                <img src="<?php echo esc_url(get_header_image()); ?>" alt="" />
-            <?php else : ?>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/hero-default.jpg'); ?>" alt="" />
-            <?php endif; ?>
+            <img src="<?php echo esc_url($hero_image_url); ?>" alt="" />
         </div>
-        <div class="wn-hero-overlay"></div>
+        <div class="wn-hero-overlay" style="background: linear-gradient(135deg, rgba(<?php echo "$r,$g,$b,$opacity_start"; ?>) 0%, rgba(<?php echo "$r,$g,$b,$opacity_mid"; ?>) 50%, rgba(<?php echo "$r,$g,$b,$opacity_end"; ?>) 100%);"></div>
         <div class="wn-hero-content">
             <div class="wn-container">
                 <div class="wn-hero-inner wn-animate">
