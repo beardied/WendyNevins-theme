@@ -1778,8 +1778,15 @@ table {
 .post.hentry {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
     box-sizing: border-box;
+}
+
+/* Remove extra padding from nested containers */
+.wn-single-post .wn-container,
+.post.hentry .wn-container {
+    padding: 0;
+    max-width: 100%;
 }
 
 /* Ensure article elements don't overflow viewport */
@@ -1790,10 +1797,10 @@ article.page {
     overflow-x: hidden;
 }
 
-/* Fix nested container padding on mobile */
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .wn-single-post,
     .post.hentry {
-        padding: 0 16px;
+        padding: 16px;
     }
 }
