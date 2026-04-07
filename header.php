@@ -13,6 +13,13 @@
 
 <a href="#main-content" class="skip-link"><?php _e('Skip to main content', 'wendynevins'); ?></a>
 
+<?php
+// Get header styling settings from CPD
+$header_title_size = get_option('cpd_header_title_size', '30');
+$header_title_color = get_option('cpd_header_title_color', '#ffffff');
+$header_tagline_size = get_option('cpd_header_tagline_size', '12');
+$header_tagline_color = get_option('cpd_header_tagline_color', 'rgba(255,255,255,0.9)');
+?>
 <header class="wn-header">
     <div class="wn-container">
         <div class="wn-header-inner">
@@ -20,8 +27,8 @@
             <!-- Logo -->
             <div class="wn-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                    <span class="wn-logo-title">Wendy Nevins RVN</span>
-                    <span class="wn-logo-tagline">REGISTERED VETERINARY NURSE</span>
+                    <span class="wn-logo-title" style="font-size: <?php echo esc_attr($header_title_size); ?>px; color: <?php echo esc_attr($header_title_color); ?>;">Wendy Nevins RVN</span>
+                    <span class="wn-logo-tagline" style="font-size: <?php echo esc_attr($header_tagline_size); ?>px; color: <?php echo esc_attr($header_tagline_color); ?>;">REGISTERED VETERINARY NURSE</span>
                 </a>
             </div>
             
@@ -93,20 +100,18 @@
     $g = hexdec(substr($hex, 2, 2));
     $b = hexdec(substr($hex, 4, 2));
     
-    // Calculate opacity values for gradient (start, middle, end)
-    // Ensure 0 = fully transparent, 100 = fully opaque
+    // Calculate opacity - ensure 0 = fully transparent, 100 = fully opaque
     $base_opacity = max(0, min(100, intval($hero_overlay_opacity))) / 100;
-    // Create subtle gradient effect proportional to base opacity
-    $opacity_start = min(1, $base_opacity * 1.08);
-    $opacity_mid = $base_opacity;
-    $opacity_end = $base_opacity * 0.96;
+    
+    // Calculate RGBA values for gradient (all using same opacity for true transparency control)
+    $opacity_value = $base_opacity;
     ?>
     <!-- Hero Section for Homepage -->
-    <section class="wn-hero">
+    <section class="wn-hero" style="background: transparent;">
         <div class="wn-hero-bg">
-            <img src="<?php echo esc_url($hero_image_url); ?>" alt="" />
+            <img src="<?php echo esc_url($hero_image_url); ?>" alt="" style="opacity: 1;" />
         </div>
-        <div class="wn-hero-overlay" style="background: linear-gradient(135deg, rgba(<?php echo "$r,$g,$b,$opacity_start"; ?>) 0%, rgba(<?php echo "$r,$g,$b,$opacity_mid"; ?>) 50%, rgba(<?php echo "$r,$g,$b,$opacity_end"; ?>) 100%);"></div>
+        <div class="wn-hero-overlay" style="background: linear-gradient(135deg, rgba(<?php echo "$r,$g,$b,$opacity_value"; ?>) 0%, rgba(<?php echo "$r,$g,$b,$opacity_value"; ?>) 50%, rgba(<?php echo "$r,$g,$b,$opacity_value"; ?>) 100%);"></div>
         <div class="wn-hero-content">
             <div class="wn-container">
                 <div class="wn-hero-inner wn-animate">

@@ -236,12 +236,16 @@ p {
    ========================================================================== */
 .wn-nav {
     display: none;
+    align-self: center;
 }
 
 .wn-nav-list {
     display: flex;
     list-style: none;
     gap: var(--space-xs);
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
 .wn-nav-link {
@@ -432,6 +436,11 @@ p {
     overflow: hidden;
 }
 
+/* When custom hero settings are applied, background is transparent */
+.wn-hero[style*="transparent"] {
+    background: transparent;
+}
+
 .wn-hero-bg {
     position: absolute;
     inset: 0;
@@ -443,6 +452,11 @@ p {
     height: 100%;
     object-fit: cover;
     opacity: 0.4;
+}
+
+/* Full opacity when custom hero is configured */
+.wn-hero[style*="transparent"] .wn-hero-bg img {
+    opacity: 1;
 }
 
 .wn-hero-overlay {
@@ -926,7 +940,7 @@ p {
     padding-top: 1.5rem;
     text-align: center;
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.95);
+    color: #1a1a1a;
     font-weight: 500;
 }
 
@@ -935,7 +949,8 @@ p {
    ========================================================================== */
 @media (min-width: 768px) {
     .wn-nav {
-        display: block;
+        display: flex;
+        align-items: center;
     }
     
     .wn-menu-toggle {

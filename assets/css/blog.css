@@ -686,16 +686,33 @@
 }
 
 .wn-sidebar .search-submit {
-    padding: 0.75rem 1.25rem;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     background: var(--color-primary);
-    color: white;
+    color: transparent;
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-md);
     font-weight: 600;
     font-size: var(--font-size-base);
     cursor: pointer;
     transition: all var(--transition-fast);
-    min-height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wn-sidebar .search-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .wn-sidebar .search-submit:hover {
