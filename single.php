@@ -10,16 +10,16 @@ get_header();
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('wn-single-post'); ?>>
     
-    <?php if (has_post_thumbnail()) : ?>
-        <div class="wn-post-hero">
-            <?php the_post_thumbnail('full', array('class' => 'wn-post-hero-image')); ?>
-        </div>
-    <?php endif; ?>
-    
     <div class="wn-container">
         <div class="wn-content-layout">
             
             <div class="wn-primary">
+                
+                <?php if (has_post_thumbnail()) : ?>
+                    <div class="wn-post-featured-image">
+                        <?php the_post_thumbnail('large', array('class' => 'wn-post-featured-img')); ?>
+                    </div>
+                <?php endif; ?>
                 
                 <header class="wn-post-header-single wn-animate">
                     <?php
