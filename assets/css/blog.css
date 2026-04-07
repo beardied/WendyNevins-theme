@@ -14,19 +14,19 @@
     min-width: 0; /* Prevent overflow */
 }
 
+/* Sidebar ALWAYS after content on mobile */
 .wn-sidebar {
-    order: 1;
+    order: 1 !important;
 }
 
 @media (min-width: 1024px) {
-    .has-sidebar .wn-content-layout,
-    .home .wn-content-layout {
+    /* Sidebar before content on desktop for all page types */
+    .wn-content-layout {
         grid-template-columns: 1fr 320px;
     }
     
-    .has-sidebar .wn-sidebar,
-    .home .wn-sidebar {
-        order: 0;
+    .wn-sidebar {
+        order: 0 !important;
     }
 }
 
