@@ -15,7 +15,7 @@
 }
 
 .wn-sidebar {
-    order: -1;
+    order: 1;
 }
 
 @media (min-width: 1024px) {
@@ -188,13 +188,17 @@
     padding-bottom: var(--space-xl);
 }
 
+/* Featured Image - Clean styling, no box/border */
 .wn-post-featured-image {
     width: 100%;
     max-height: 300px;
     overflow: hidden;
-    margin-bottom: var(--space-lg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    margin: 0 0 20px 0;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
 }
 
 .wn-post-featured-img {
@@ -203,17 +207,27 @@
     object-fit: cover;
 }
 
+/* Single Post Featured Image - Clean, no box styling */
 .wn-post-hero {
     width: 100%;
     max-height: 500px;
     overflow: hidden;
-    margin-bottom: var(--space-xl);
+    margin: 0 0 20px 0;  /* Reduced from var(--space-xl), no top margin */
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
 }
 
 .wn-post-hero-image {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 500px;
     object-fit: cover;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .wn-post-header-single {
@@ -279,7 +293,13 @@
     margin-bottom: var(--space-md);
 }
 
-/* Post/Page Headings - Green */
+/* Post/Page Headings - Green - FORCE WITH IMPORTANT */
+.wn-single-post h1,
+.wn-single-post h2,
+.wn-single-post h3,
+.wn-single-post h4,
+.wn-single-post h5,
+.wn-single-post h6,
 .wn-post-body h1,
 .wn-post-body h2,
 .wn-post-body h3,
@@ -297,8 +317,19 @@
 .page-content h3,
 .page-content h4,
 .page-content h5,
-.page-content h6 {
-    color: var(--color-primary);
+.page-content h6,
+.single-post h1,
+.single-post h2,
+.single-post h3,
+.single-post h4,
+.single-post h5,
+.single-post h6 {
+    color: var(--color-primary) !important;
+}
+
+/* Single post title specifically */
+.wn-post-title-single {
+    color: var(--color-primary) !important;
 }
 
 .wn-post-body h2 {
@@ -645,13 +676,21 @@
 
 .wn-sidebar .widget-title {
     background: var(--color-primary);
-    color: white;
+    color: #ffffff !important;
     font-size: 0.8rem;
     font-weight: 700;
     margin: 0;
     padding: 0.875rem 1.25rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+
+/* Ensure widget titles stay white - override any heading colors */
+.wn-sidebar .widget-title,
+.wn-sidebar .widget h2,
+.wn-sidebar .widget h3,
+.wn-sidebar .widget h4 {
+    color: #ffffff !important;
 }
 
 .wn-sidebar .widget > ul,
