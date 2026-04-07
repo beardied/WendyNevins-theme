@@ -770,16 +770,19 @@ p {
 .wn-grid-2 {
     display: grid;
     gap: var(--space-lg);
+    grid-template-columns: 1fr;
 }
 
 .wn-grid-3 {
     display: grid;
     gap: var(--space-lg);
+    grid-template-columns: 1fr;
 }
 
 .wn-grid-4 {
     display: grid;
     gap: var(--space-lg);
+    grid-template-columns: 1fr;
 }
 
 @media (min-width: 640px) {
@@ -1727,5 +1730,45 @@ table {
     
     .wn-nav-link {
         white-space: normal;
+    }
+    
+    /* Fix feature section on homepage */
+    .wn-feature {
+        padding: var(--space-sm);
+    }
+    
+    .wn-feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .wn-feature-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Fix section padding */
+    .wn-section {
+        padding: var(--space-xl) 0;
+    }
+    
+    /* Fix section title size */
+    .wn-section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    /* Ensure cards don't overflow */
+    .wn-card {
+        max-width: 100%;
+    }
+    
+    /* Fix post featured images */
+    .wn-post-featured-image {
+        max-width: 100%;
+    }
+    
+    /* Fix content layout */
+    .wn-content-layout {
+        max-width: 100%;
     }
 }
