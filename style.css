@@ -1002,18 +1002,16 @@ p {
    Global Link & Button Color Enforcement (Green Theme)
    ========================================================================== */
 
-/* All link states - force green */
-a,
-a:link,
-a:visited,
-a:hover,
-a:active,
-a:focus {
+/* All link states - force green (except on green backgrounds) */
+a:not(.wn-btn):not(.wn-nav-link):not(.wn-mobile-nav-list a):not(.wn-footer-links a):not(.wn-social-link):not(.wn-footer-contact a):not(.wn-hero-actions a),
+a:not(.wn-btn):not(.wn-nav-link):not(.wn-mobile-nav-list a):not(.wn-footer-links a):not(.wn-social-link):not(.wn-footer-contact a):not(.wn-hero-actions a):link,
+a:not(.wn-btn):not(.wn-nav-link):not(.wn-mobile-nav-list a):not(.wn-footer-links a):not(.wn-social-link):not(.wn-footer-contact a):not(.wn-hero-actions a):visited {
     color: var(--color-accent);
 }
 
-a:hover,
-a:focus {
+a:not(.wn-btn):not(.wn-nav-link):not(.wn-mobile-nav-list a):not(.wn-footer-links a):not(.wn-social-link):not(.wn-footer-contact a):not(.wn-hero-actions a):hover,
+a:not(.wn-btn):not(.wn-nav-link):not(.wn-mobile-nav-list a):not(.wn-footer-links a):not(.wn-social-link):not(.wn-footer-contact a):not(.wn-hero-actions a):active,
+a:not(.wn-btn):not(.wn-nav-link):not(.wn-mobile-nav-list a):not(.wn-footer-links a):not(.wn-social-link):not(.wn-footer-contact a):not(.wn-hero-actions a):focus {
     color: var(--color-accent-hover);
 }
 
@@ -1021,7 +1019,6 @@ a:focus {
 .entry-content a,
 .post-content a,
 .page-content a,
-.comment-content a,
 .widget a,
 .sidebar a {
     color: var(--color-accent);
@@ -1043,6 +1040,7 @@ input[type="submit"],
 .wp-block-file__button {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
+    color: white;
 }
 
 button:hover,
@@ -1052,6 +1050,7 @@ input[type="submit"]:hover,
 .wp-block-file__button:hover {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
+    color: white;
 }
 
 /* Focus styles */
