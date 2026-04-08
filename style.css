@@ -1804,3 +1804,33 @@ article.page {
         padding: 16px;
     }
 }
+
+/* ==========================================================================
+   Blank Template Styles
+   ========================================================================== */
+
+/* Blank template - no header padding needed */
+.template-blank .wn-main {
+    padding-top: var(--space-xl);
+    min-height: calc(100vh - 300px);
+}
+
+/* Footer grid adjustment when Quick Links is hidden */
+.wn-footer-grid.wn-footer-no-quicklinks {
+    grid-template-columns: 1fr 1fr;
+}
+
+.wn-footer-grid.wn-footer-no-quicklinks .wn-footer-center {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .wn-footer-grid.wn-footer-no-quicklinks {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .wn-footer-grid.wn-footer-no-quicklinks .wn-footer-center {
+        text-align: center;
+    }
+}

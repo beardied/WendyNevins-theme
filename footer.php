@@ -3,8 +3,13 @@
 <footer class="wn-footer">
     <div class="wn-container">
         
-        <div class="wn-footer-grid">
+        <?php
+        // Check if using blank template
+        $is_blank_template = is_page_template('template-blank.php');
+        ?>
+        <div class="wn-footer-grid <?php echo $is_blank_template ? 'wn-footer-no-quicklinks' : ''; ?>">
             
+            <?php if (!$is_blank_template) : ?>
             <!-- Quick Links -->
             <div class="wn-footer-col">
                 <h4 class="wn-footer-title"><?php _e('Quick Links', 'wendynevins'); ?></h4>
@@ -15,6 +20,7 @@
                     <li><a href="<?php echo esc_url(home_url('/cpd-category/')); ?>"><?php _e('Categories', 'wendynevins'); ?></a></li>
                 </ul>
             </div>
+            <?php endif; ?>
             
             <!-- Center Logo/Social -->
             <div class="wn-footer-col wn-footer-center">
