@@ -1069,4 +1069,14 @@ input[type="submit"].search-submit::before {
         flex-wrap: wrap;
         gap: 8px;
     }
+    
+    /* Fix search widget overflow on mobile */
+    .wn-sidebar .search-form {
+        max-width: 100%;
+    }
+    
+    .wn-sidebar .search-field {
+        min-width: 0; /* Allow input to shrink */
+        width: 100%;
+    }
 }
