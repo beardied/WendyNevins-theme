@@ -1663,6 +1663,18 @@ table {
         grid-template-columns: 1fr;
     }
     
+    /* Fix sidebar layout causing overflow - force single column */
+    .wn-content-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    /* Ensure sidebar doesn't add width */
+    .wn-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+    
     /* Ensure forms don't overflow */
     input,
     textarea,
