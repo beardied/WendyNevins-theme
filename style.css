@@ -1896,3 +1896,62 @@ article.page {
         grid-column: 1;
     }
 }
+
+/* ==========================================================================
+   Mobile Centering Fix - Copy CPD Page Structure
+   ========================================================================== */
+
+/* Homepage content wrapper - mirrors .cpd-single structure */
+.home .wn-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Ensure all page content is constrained like CPD pages */
+.page .wn-main,
+.single-post .wn-main,
+.archive .wn-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+}
+
+/* Content layout inside main */
+.page .wn-content-layout,
+.single-post .wn-content-layout,
+.archive .wn-content-layout {
+    max-width: 100%;
+}
+
+/* Remove extra padding from nested containers in main */
+.wn-main > .wn-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Mobile adjustments - match CPD mobile behavior */
+@media (max-width: 768px) {
+    .home .wn-main,
+    .page .wn-main,
+    .single-post .wn-main,
+    .archive .wn-main {
+        max-width: 100%;
+        padding: 0 16px 16px;
+    }
+    
+    /* Ensure sections don't overflow */
+    .wn-section {
+        max-width: 100%;
+    }
+    
+    /* Fix grids to be single column */
+    .wn-grid-4,
+    .wn-grid-3,
+    .wn-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
