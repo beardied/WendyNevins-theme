@@ -20,14 +20,14 @@
 <body <?php body_class('template-blank'); ?>>
 <?php wp_body_open(); ?>
 
-<main id="main-content" class="wn-main">
+<main id="main-content" class="wn-main wn-blank-main">
     <div class="wn-container">
         <?php
         while (have_posts()) :
             the_post();
             ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <div class="wn-blank-content">
+            <article id="post-<?php the_ID(); ?>" <?php post_class('wn-page-content'); ?>>
+                <div class="entry-content">
                     <?php the_content(); ?>
                 </div>
             </article>
