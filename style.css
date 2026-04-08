@@ -1254,23 +1254,25 @@ tr:hover {
     color: white;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
+/* Scrollbar - Desktop only */
+@media (min-width: 769px) {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
 
-::-webkit-scrollbar-track {
-    background: var(--color-background-alt);
-}
+    ::-webkit-scrollbar-track {
+        background: var(--color-background-alt);
+    }
 
-::-webkit-scrollbar-thumb {
-    background: var(--color-primary-light);
-    border-radius: var(--radius-full);
-}
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-primary-light);
+        border-radius: var(--radius-full);
+    }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary);
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-primary);
+    }
 }
 
 /* ==========================================================================
