@@ -1803,6 +1803,48 @@ article.page {
     .post.hentry {
         padding: 16px;
     }
+    
+    /* Constrain homepage sections like CPD pages */
+    .wn-section {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Ensure all containers respect viewport */
+    .wn-container {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Fix grid containers on mobile */
+    .wn-grid-4,
+    .wn-grid-3,
+    .wn-grid-2 {
+        max-width: 100%;
+    }
+    
+    /* Fix feature icons that might overflow */
+    .wn-feature-icon {
+        max-width: 100%;
+    }
+    
+    /* Fix header to prevent overflow */
+    .wn-header-inner {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure hero sections don't overflow */
+    .wn-hero,
+    .wn-page-header {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Fix content layout on mobile */
+    .wn-content-layout {
+        max-width: 100%;
+    }
 }
 
 /* ==========================================================================
