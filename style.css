@@ -1823,17 +1823,18 @@ article.page {
 
 /* Footer grid adjustment when Quick Links is hidden */
 .wn-footer-grid.wn-footer-no-quicklinks {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     align-items: center;
 }
 
 .wn-footer-grid.wn-footer-no-quicklinks .wn-footer-center {
     text-align: center;
-    order: -1;
+    grid-column: 2;
 }
 
 .wn-footer-grid.wn-footer-no-quicklinks .wn-footer-right {
     text-align: right;
+    grid-column: 3;
 }
 
 @media (max-width: 768px) {
@@ -1845,10 +1846,11 @@ article.page {
     
     .wn-footer-grid.wn-footer-no-quicklinks .wn-footer-center {
         text-align: center;
-        order: 0;
+        grid-column: 1;
     }
     
     .wn-footer-grid.wn-footer-no-quicklinks .wn-footer-right {
         text-align: center;
+        grid-column: 1;
     }
 }

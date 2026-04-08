@@ -22,6 +22,11 @@
             </div>
             <?php endif; ?>
             
+            <?php if ($is_blank_template) : ?>
+            <!-- Empty left column to center the content -->
+            <div class="wn-footer-col"></div>
+            <?php endif; ?>
+            
             <!-- Center Logo/Social -->
             <div class="wn-footer-col wn-footer-center">
                 <div class="wn-footer-logo">
